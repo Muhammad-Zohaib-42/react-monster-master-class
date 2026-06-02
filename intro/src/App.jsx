@@ -1,24 +1,20 @@
-import { useState } from "react"
+import React, { useEffect, useState } from 'react'
 
 const App = () => {
-  const [count, setCount] = useState(0)
+  const [name, setName] = useState(() => {
+    const savedName = localStorage.getItem("name")
+    return savedName ? JSON.parse(savedName) : ""
+  })
 
-  function increment() {
-    setCount(prev => prev + 1)
-  }
-
-  function decrement() {
-    setCount(prev => prev - 1)
-  }
+  useEffect(() => {
+    localStorage.setItem("name", JSON.stringify(name))
+  }, [name])
 
   return (
-    <section>
-      <p>{count}</p>
-      <div>
-        <button onClick={increment}>+</button>
-        <button onClick={decrement}>-</button>
-      </div>
-    </section>
+    <div>
+      <h3>Your Name: {name}</h3>
+      <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder='Enter name' />
+    </div>
   )
 }
 
