@@ -1,11 +1,9 @@
-import { FaCartArrowDown } from "react-icons/fa";
-import "./index.css"
+import StyledCard from "./components/StyledCard";
 
 const App = () => {
   return (
     <section>
-      <FaCartArrowDown />
-      <h1>Hello World</h1>
+      <StyledCard />
     </section>
   )
 }
