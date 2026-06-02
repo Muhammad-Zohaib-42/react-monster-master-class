@@ -1,13 +1,7 @@
-import Footer from "./components/Footer"
-import Header from "./components/Header"
-import MainContent from "./components/MainContent"
+import JSXRules from "./components/JSXRules"
 
 const App = () => {
-  return <>
-    <Header />
-    <MainContent />
-    <Footer />
-  </>
+  return <JSXRules />
 }
 
 export default App
