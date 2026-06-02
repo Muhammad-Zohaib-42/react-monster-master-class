@@ -1,11 +1,8 @@
 const App = () => {
-  const isLoggedIn = true
-  const isAdmin = true
-
-  return <>
-     {isLoggedIn && isAdmin && <h1>Welcom Admin</h1>}
-     {isLoggedIn && !isAdmin && <h1>Welcome user</h1>} 
-  </>
+  const styles = {color: "white", backgroundColor: "crimson", padding: "3rem"}
+  return (
+    <h1 style={styles}>Hello World</h1>
+  )
 }
 
 export default App
