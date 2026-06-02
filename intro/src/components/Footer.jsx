@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
+import { jsx as _jsx } from "react/jsx-runtime";
 
 const Footer = () => {
-  return (
-    <footer>
-        <p>&copy; 2026 My Website</p>
-    </footer>
-  )
-}
+  return _jsx("footer", {
+    children: _jsx("p", {
+      children: "\xA9 2026 My Website",
+    }),
+  });
+};
 
-export default Footer
+export default Footer;
