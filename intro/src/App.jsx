@@ -1,17 +1,14 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useState } from 'react'
+import useFetchHook from './hooks/useFetchHook'
 
 const App = () => {
-  const inputElement = useRef()
-
-  function handleBtnClick() {
-    inputElement.current.focus()
-    inputElement.current.value = "Muhammad Zohaib"
-  }
+  const [data] = useFetchHook('https://jsonplaceholder.typicode.com/todos')
 
   return (
     <div>
-      <input type="text" ref={inputElement} />
-      <button onClick={handleBtnClick}>Focus Input & Write Name</button>
+      {
+        data && data.map(item => <p key={item.id}>{item.title}</p>)
+      }
     </div>
   )
 }
