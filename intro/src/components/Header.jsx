@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AuthContext } from '../contexts/AuthContext.jsx'
 
 const Header = () => {
+  const {isAdmin, setIsAdmin} = useContext(AuthContext)
+
   return (
     <header>
         <h1>Welcome to My Website</h1>
@@ -9,6 +12,7 @@ const Header = () => {
             <a href="#">About</a>
             <a href="#">Contact</a>
         </nav>
+        <button onClick={() => setIsAdmin(!isAdmin)}>{isAdmin ? "Welcom Admin" : "Welcom User"}</button>
     </header>
   )
 }

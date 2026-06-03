@@ -1,12 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import WelcomeMessage from './WelcomeMessage'
+import { AuthContext } from '../contexts/AuthContext'
 
 const MainContent = () => {
+  const {isAdmin} = useContext(AuthContext)
+
+  if (isAdmin) {
+    return (
+      <main>
+          <h1>Welcom Admin Dashboard</h1>
+      </main>
+    )
+  }
+
   return (
     <main>
-        <WelcomeMessage />
-        <h2>Main Content</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam voluptatibus optio modi quibusdam possimus at impedit rerum delectus! Amet, libero cumque. Velit odio, tenetur debitis exercitationem nihil architecto doloremque atque!</p>
+      <h1>Welcome User Dashboard</h1>
     </main>
   )
 }
