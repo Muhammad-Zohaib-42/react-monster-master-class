@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import useFetchHook from './hooks/useFetchHook'
+import React, { useId } from 'react'
 
 const App = () => {
-  const [data] = useFetchHook('https://jsonplaceholder.typicode.com/todos')
+  const id = useId()
 
   return (
     <div>
-      {
-        data && data.map(item => <p key={item.id}>{item.title}</p>)
-      }
+      <label htmlFor={id}>Username</label>
+      <input type="text" id={id} name='username' placeholder='Enter username' />
     </div>
   )
 }
