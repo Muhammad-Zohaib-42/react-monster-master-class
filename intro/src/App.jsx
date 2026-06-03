@@ -1,10 +1,17 @@
-import React from 'react'
-import CounterReducer from './components/CounterReducer'
+import React, { useRef } from 'react'
 
 const App = () => {
+  const inputElement = useRef()
+
+  function handleBtnClick() {
+    inputElement.current.focus()
+    inputElement.current.value = "Muhammad Zohaib"
+  }
+
   return (
     <div>
-      <CounterReducer />
+      <input type="text" ref={inputElement} />
+      <button onClick={handleBtnClick}>Focus Input & Write Name</button>
     </div>
   )
 }
