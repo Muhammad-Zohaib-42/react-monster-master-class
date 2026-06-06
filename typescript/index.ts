@@ -1,0 +1,1 @@
+const myName: number = 2
