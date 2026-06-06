@@ -1,1 +1,2 @@
-const myName: number = 2
+const myName = 'zohaib'
+myName = 2
