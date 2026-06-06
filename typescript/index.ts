@@ -1,2 +1,3 @@
-const myName = 'zohaib'
-myName = 2
+let myName: any = 'zohaib'
+myName = 23
+myName = true
