@@ -1,5 +1,2 @@
-function add(msg:string):never {
-    throw new Error(msg)
-}
-
-add('something went wrong')
+const nums: Array<number> = [1,2,3,4,true]
+console.log(nums)
