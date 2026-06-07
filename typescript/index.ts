@@ -1,1 +1,3 @@
-const items: (number | string)[] = [1,2,'zohaib']
+let color: "red" | "green" | "blue" = "red"
+color = "green"
+color = "yellow"
