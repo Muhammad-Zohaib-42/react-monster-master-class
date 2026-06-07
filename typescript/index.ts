@@ -1,20 +1,11 @@
-type Person = {
-    name: string, 
-    age: number,
-    gender?: string
+type Obj = {
+    name: string,
+    age?: number
 }
 
-const person: Person = {
+const obj: Obj = {
     name: "zohaib",
-    age: 23,
+    
 }
 
-type User = {name: string, age: number, gender: string, city?: string}
-
-function createUserObject(): User {
-    return {
-        name: "zohaib",
-        age: 23,
-        gender: "male"
-    }
-}
+console.log(obj)
