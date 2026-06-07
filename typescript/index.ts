@@ -1,9 +1,17 @@
-const person: {name: string, age: number, gender?: string} = {
+type Person = {
+    name: string, 
+    age: number,
+    gender?: string
+}
+
+const person: Person = {
     name: "zohaib",
     age: 23,
 }
 
-function createUserObject(): {name: string, age: number, gender: string, city?: string} {
+type User = {name: string, age: number, gender: string, city?: string}
+
+function createUserObject(): User {
     return {
         name: "zohaib",
         age: 23,
