@@ -1,8 +1,5 @@
-function addOne(num: number): number {
-    return num + 1
+function add(x:number, y:number):void {
+    console.log(x+y)
 }
 
-const result = addOne(1)
-console.log(result)
-
-const square = (x:number):number => x * x
+add(2,3)
