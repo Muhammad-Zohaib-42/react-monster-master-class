@@ -1,1 +1,8 @@
-const items: [number, string] = [1, 'zohaib']
+enum WeatherCondition {
+    Sunny = "sunny",
+    Cloudy = "cloudy",
+    Rainy = "rainy",
+    Snowy = "snowy"
+}
+
+console.log(WeatherCondition.Sunny)
