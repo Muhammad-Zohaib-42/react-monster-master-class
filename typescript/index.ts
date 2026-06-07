@@ -1,3 +1,1 @@
-let color: "red" | "green" | "blue" = "red"
-color = "green"
-color = "yellow"
+const items: [number, string] = [1, 'zohaib']
