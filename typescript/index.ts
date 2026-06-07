@@ -1,5 +1,5 @@
-function add(x:number, y:number):void {
-    console.log(x+y)
+function add(msg:string):never {
+    throw new Error(msg)
 }
 
-add(2,3)
+add('something went wrong')
