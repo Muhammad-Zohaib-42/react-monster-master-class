@@ -1,23 +1,22 @@
-interface Vehicle {
+interface Car {
+    brand: string
     start(): void
+}
+// declaration merging
+interface Car {
+    model: string,
     stop(): void
 }
 
-class Car implements Vehicle {
-    private color = "red"
-
+const car: Car = {
+    brand: "BMW",
     start() {
-        console.log("car is starting...")
-    }
-
+        console.log('start')
+    },
     stop() {
-        console.log("car is stopped")
-    }
-
-    printColor() {
-        console.log(`color: ${this.color}`)
-    }
+        console.log('stop')
+    },
+    model: "M3"
 }
 
-const car = new Car()
-car.printColor()
+car.start()
