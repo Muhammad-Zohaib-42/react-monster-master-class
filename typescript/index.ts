@@ -1,11 +1,20 @@
-interface ReversePair<T,U> {
-    value2: U
-    value1: T
+class Box<T> {
+    private content: T
+
+    constructor(content: T) {
+        this.content = content
+    }
+
+    getContent(): T {
+        return this.content
+    }
+    
+    setContent(content: T): void {
+        this.content = content
+    }
 }
 
-function reversePair<T,U>(value1:T, value2:U): ReversePair<T,U> {
-    return {value2, value1}
-}
-
-const pair = reversePair('zohaib', 42)
-console.log(pair)
+const contentBox = new Box<string>("Hello World")
+console.log(contentBox.getContent())
+contentBox.setContent("Hello Ts")
+console.log(contentBox.getContent())
