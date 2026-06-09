@@ -1,25 +1,17 @@
-class Dog {
-    bark(): void {
-        console.log("barking...")
-    }
+type User = {
+    username: string
+    email: string
 }
 
-class Cat {
-    meow(): void {
-        console.log("meow...")
-    }
+type Admin = {
+    dashboard: boolean
 }
 
-function animalsSound(animal: Dog | Cat):void {
-    if (animal instanceof Dog) {
-        animal.bark()
-    } else {
-        animal.meow()
-    }
+type NewUser = User & Admin
+
+const newUser: NewUser = {
+    username: "zohaib",
+    email: "zohaib@gmail.com",
+    dashboard: true
 }
 
-const dog = new Dog()
-const cat = new Cat()
-
-animalsSound(dog)
-animalsSound(cat)
