@@ -1,19 +1,23 @@
-class BankAccount {
-    private myAmount: number = 0
+interface Vehicle {
+    start(): void
+    stop(): void
+}
 
-    get getAmount(): number {
-        return this.myAmount
+class Car implements Vehicle {
+    private color = "red"
+
+    start() {
+        console.log("car is starting...")
     }
 
-    set setAmount(amount: number) {
-        this.myAmount = amount
+    stop() {
+        console.log("car is stopped")
+    }
+
+    printColor() {
+        console.log(`color: ${this.color}`)
     }
 }
 
-const myBankAccount = new BankAccount()
-
-console.log(`my amount: ${myBankAccount.getAmount}`)
-
-myBankAccount.setAmount = 1000000
-
-console.log(`my amount: ${myBankAccount.getAmount}`)
+const car = new Car()
+car.printColor()
