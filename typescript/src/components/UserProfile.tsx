@@ -20,7 +20,7 @@ const UserProfile = () => {
         <h1>User Profile</h1>
         <ul>
             {
-                Object.keys(profileData).map((key) => <li key={profileData[key]}>{profileData[key]}</li>)
+                Object.keys(profileData).map(() => <li>{profileData.username}</li>)
             }
         </ul>
     </div>
