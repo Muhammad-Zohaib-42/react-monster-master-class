@@ -1,15 +1,24 @@
-import Button from "./components/Button"
-// import User from "./components/User"
+import AdminInfo from "./components/AdminInfo"
+import UserInfo from "./components/UserInfo"
 
 function App() {
-  function onClickHandler() {
-    console.log("button is clicked successfully!")
+  const user = {
+    id: 1,
+    username: "zohaib",
+    email: "zohaib@gmail.com"
+  }
+
+  const admin = {
+    id: 2,
+    username: "shoaib",
+    email: "shoaib@gmail.com",
+    role: "admin"
   }
 
   return (
     <>
-      {/* <User username="zohaib" email="zohaib@gmail.com" /> */}
-      <Button label="Click Me!" onClickHandler={onClickHandler} disabled={false} />
+      <UserInfo user={user} />
+      <AdminInfo admin={admin} />      
     </>
   )
 }
