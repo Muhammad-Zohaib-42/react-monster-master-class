@@ -1,12 +1,19 @@
-import { type UserInfo } from "../types"
+import { type UserInfo } from "./UserInfo"
 
-const AdminInfo = ({admin}: {admin: UserInfo}) => {
+type AdminInfo = UserInfo & {
+    role: string
+}
+
+const AdminInfo = ({username, email, password, role}: AdminInfo) => {
   return (
     <div>
-      <p>id: {admin.id}</p>
-      <p>username: {admin.username}</p>
-      <p>email: {admin.email}</p>
-      <p>role: {admin.role}</p>
+        <h1>AdminInfo here</h1>
+        <ul>
+            <li>{username}</li>
+            <li>{email}</li>
+            <li>{password}</li>
+            <li>{role}</li>
+        </ul>
     </div>
   )
 }

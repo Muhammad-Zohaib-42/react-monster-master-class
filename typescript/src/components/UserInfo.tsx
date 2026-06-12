@@ -1,11 +1,18 @@
-import { type Info } from "../types"
+export type UserInfo = {
+    username: string,
+    email: string,
+    password: string
+}
 
-const UserInfo = ({user}: {user: Info}) => {
+const UserInfo = ({username, email, password}: UserInfo) => {
   return (
     <div>
-      <p>id: {user.id}</p>
-      <p>username: {user.username}</p>
-      <p>email: {user.email}</p>
+        <h1>UserInfo here</h1>
+        <ul>
+            <li>{username}</li>
+            <li>{email}</li>
+            <li>{password}</li>
+        </ul>
     </div>
   )
 }
