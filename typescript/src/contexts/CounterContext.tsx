@@ -1,8 +1,18 @@
-import { createContext, useState } from "react";
+import { createContext, useState, type ReactNode } from "react";
 
-export const CounterContext = createContext()
+interface CounterContextProps {
+    count: number,
+    increment: () => void,
+    decrement: () => void
+}
 
-export const CounterProvider = ({children}) => {
+export const CounterContext = createContext<CounterContextProps>({
+    count: 0,
+    increment: () => {},
+    decrement: () => {}
+})
+
+export const CounterProvider = ({children}: {children: ReactNode}) => {
     const [count, setCount] = useState(0)
 
     function increment() {
