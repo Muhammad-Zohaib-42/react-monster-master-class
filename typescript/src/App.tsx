@@ -1,9 +1,9 @@
-import Form from "./components/Form"
+import EventHandling from "./components/EventHandling"
 
 function App() {
   return (
     <>
-      <Form />
+      <EventHandling />
     </>
   )
 }
