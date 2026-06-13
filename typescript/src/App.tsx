@@ -1,9 +1,9 @@
-import EventHandling from "./components/EventHandling"
+import Counter from "./components/Counter"
 
 function App() {
   return (
     <>
-      <EventHandling />
+      <Counter />
     </>
   )
 }
