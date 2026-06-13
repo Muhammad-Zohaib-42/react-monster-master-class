@@ -1,9 +1,9 @@
-import Todo from "./components/Todo"
+import Form from "./components/Form"
 
 function App() {
   return (
     <>
-      <Todo />
+      <Form />
     </>
   )
 }
