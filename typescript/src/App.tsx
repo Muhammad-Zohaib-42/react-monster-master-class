@@ -1,9 +1,9 @@
-import CounterReducer from "./components/CounterReducer"
+import Counter from "./components/Counter"
 
 function App() {
   return (
     <>
-      <CounterReducer />
+      <Counter />
     </>
   )
 }
