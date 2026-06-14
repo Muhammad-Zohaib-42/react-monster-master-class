@@ -1,37 +1,57 @@
-import { useForm, type SubmitHandler } from "react-hook-form"
+import { useEffect, useState } from "react";
 
-interface FormData {
-  name: string,
-  email: string,
-  password: string
-}
+type TodoData = {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
+};
 
-function App() {
+const App = () => {
+  const [todoData, setTodoData] = useState<TodoData | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const {register, handleSubmit, formState: {errors, isSubmitting}} = useForm<FormData>()
+  useEffect(() => {
+    async function fetchData() {
+      setLoading(true);
+      try {
+        const response = await fetch(
+          "https://jsonplaceholder.typicode.com/todos/1",
+        );
 
-  const onSubmit: SubmitHandler<FormData> = data => {
-    console.log(data)
+        if (!response.ok) {
+          console.log("response is not ok")
+        }
+
+        const data: TodoData = await response.json()
+        setTodoData(data)
+      } catch (error) {
+        console.log(error);
+        setLoading(false);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return (
+      <main className="h-screen flex items-center justify-center">
+        <h1 className="text-2xl font-bold">Loading Data...</h1>
+      </main>
+    );
   }
 
-  return <main className="flex flex-col items-center justify-center h-screen">
-    <h1 className="text-xl font-bold mb-5">useForm( ) hook</h1>
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3">
-      <input {...register('name', {required: "name is requierd"})} className="border outline-none rounded p-2" type="text" placeholder="Enter name" />
-      {errors.name && <p className="text-red-500">{errors.name.message}</p>}
-      <input {...register('email', {required: "email is requierd", pattern: {
-        value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-        message: "Invalid email address"
-      }})} className="border outline-none rounded p-2" type="email" placeholder="Enter email" />
-      {errors.email && <p className="text-red-500">{errors.email.message}</p>}
-      <input {...register('password', {required: "password is requierd", minLength: {
-        value: 8,
-        message: "password must be atleast 8 characters long"
-      }})} className="border outline-none rounded p-2" type="password" placeholder="Enter password" />
-      {errors.password && <p className="text-red-500">{errors.password.message}</p>}
-      <button disabled={isSubmitting} className="p-2 bg-gray-800 text-gray-300 cursor-pointer rounded">{isSubmitting ? "loading..." : "Submit"}</button>
-    </form>
-  </main>
-}
+  return (
+    <main className="h-screen flex flex-col gap-2 items-center justify-center">
+      <h1 className="text-2xl font-bold">Todos</h1>
+      <hr className="shrink-0 border-t h-1" />
+      <p>{todoData?.title}</p>
+      <hr className="shrink-0 border-t h-1" />
+    </main>
+  );
+};
 
-export default App
+export default App;
