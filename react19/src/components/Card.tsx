@@ -1,8 +1,8 @@
-import { useContext } from "react"
+import { use } from "react"
 import { ThemeContext } from "../contexts/ThemeContext"
 
 const Card = () => {
-  const {theme, toggleTheme} = useContext(ThemeContext)
+  const {theme, toggleTheme} = use(ThemeContext)
 
   return (
     <div className={`border border-gray-500 rounded p-5 ${theme == 'light' ? "bg-gray-100 text-gray-800" : "bg-gray-900 text-gray-200"}`}>
