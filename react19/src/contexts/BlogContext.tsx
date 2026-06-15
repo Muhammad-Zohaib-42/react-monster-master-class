@@ -1,8 +1,8 @@
 import { createContext, useState, type Dispatch, type ReactNode, type SetStateAction } from "react";
 
-type Blog = {
+export type Blog = {
     id: number,
-    imgSrc: string,
+    imgSrc: File | undefined,
     title: string,
     description: string,
     date: string
@@ -11,14 +11,14 @@ type Blog = {
 type BlogContextType = {
     isModalOpen: boolean,
     toggleModal: () => void,
-    blogs: Blog[],
-    setBlogs: Dispatch<SetStateAction<never[]>>,
+    blogs: Blog[] | [],
+    setBlogs: Dispatch<SetStateAction<Blog[] | []>>,
     editingBlog: number | null,
     setEditingBlog: Dispatch<SetStateAction<null>>,
     title: string,
     description: string,
-    setTitle: Dispatch<SetStateAction<null>>,
-    setDescription: Dispatch<SetStateAction<null>>,
+    setTitle: Dispatch<SetStateAction<string>>,
+    setDescription: Dispatch<SetStateAction<string>>,
 }
 
 type BlogProviderProps = {
@@ -29,7 +29,7 @@ export const BlogContext = createContext<BlogContextType | null>(null)
 
 export const BlogProvider = ({children}: BlogProviderProps) => {
     const [isModalOpen,setIsModalOpen] = useState(true)
-    const [blogs, setBlogs] = useState([])
+    const [blogs, setBlogs] = useState<Blog[] | []>([])
     const [editingBlog, setEditingBlog] = useState(null)
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")

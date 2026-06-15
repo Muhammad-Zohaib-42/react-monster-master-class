@@ -7,7 +7,7 @@ const App = () => {
     <>
       <Header />
       <Main />
-      <Modal isOpen={false} />
+      <Modal />
     </>
   )
 }

@@ -1,11 +1,11 @@
-import { useContext, useRef, useState, type FormEvent } from "react"
+import { useContext, useRef, type FormEvent } from "react"
 import { createPortal } from "react-dom"
 import { FaX } from "react-icons/fa6"
-import { BlogContext } from "../contexts/BlogContext"
+import { BlogContext, type Blog } from "../contexts/BlogContext"
 import { FaUpload } from "react-icons/fa"
 
 const Modal = () => {
-    const {toggleModal, isModalOpen, blogs, setBlogs, editingBlog, setEditingBlog, title, description, setTitle, setDescription} = useContext(BlogContext)
+    const {toggleModal, isModalOpen, setBlogs, editingBlog, setEditingBlog, title, description, setTitle, setDescription} = useContext(BlogContext)!
 
     const imageInputRef = useRef<HTMLInputElement | null>(null)
 
@@ -13,13 +13,13 @@ const Modal = () => {
         e.preventDefault()
 
         if (editingBlog) {
-            setBlogs(prev => prev.map(blog => {
+            setBlogs(prev => prev.map((blog): Blog => {
                 if (blog.id == editingBlog) {
                     return {
                         ...blog,
                         title,
                         description,
-                        imgSrc: imageInputRef.current.files[0] ? imageInputRef.current.files[0] : blog.imgSrc
+                        imgSrc: imageInputRef.current?.files?.[0] ? imageInputRef.current.files[0] : blog.imgSrc
                     }
                 } else {
                     return blog
@@ -32,7 +32,7 @@ const Modal = () => {
                 title,
                 description,
                 date: new Date().toLocaleDateString(),
-                imgSrc: imageInputRef.current!.files[0]
+                imgSrc: imageInputRef.current?.files?.[0]
             }
     
             setBlogs(prev => [...prev, blog])
