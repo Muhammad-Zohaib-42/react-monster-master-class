@@ -21,7 +21,7 @@ const peoplesData = [
 
 const FollowContainer = () => {
   return (
-    <div className="shadow-md py-3 px-4 rounded-lg">
+    <div className="border border-gray-200 border-t-0 py-3 px-4 rounded-lg">
         <h2 className="mb-2 font-semibold">People to follow</h2>
         <ul className="flex flex-col gap-1.5">
             {

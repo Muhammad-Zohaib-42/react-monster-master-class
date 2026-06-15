@@ -1,8 +1,8 @@
-import { IoAddCircleOutline } from "react-icons/io5"
+import { IoAddCircle } from "react-icons/io5"
 
 const AddBlogBtn = () => {
   return (
-    <button className="bg-slate-900 rounded-full mt-2 text-slate-200 px-3 py-1.5 flex items-center gap-1 cursor-pointer">Add New Blog <IoAddCircleOutline className="text-gray-50" size={20} /></button>
+    <button className="bg-slate-900 rounded-full text-sm text-slate-200 px-5 py-2 flex items-center gap-1 cursor-pointer">Add New Blog <IoAddCircle className="text-white" size={18} /></button>
   )
 }
 

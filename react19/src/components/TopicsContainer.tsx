@@ -4,7 +4,7 @@ const topics = ['Technology', 'Design Thinking', 'Personal Growth']
 
 const TopicsContainer = () => {
   return (
-    <div className="shadow-md py-3 px-4 rounded-lg">
+    <div className="border border-gray-200 py-3 px-4 rounded-lg">
         <h2 className="mb-3 font-semibold">Today's Top Trends</h2>
         <ul className="flex gap-1">
             {
