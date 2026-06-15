@@ -1,12 +1,12 @@
-import Profile from "./components/Profile"
-import Sidebar from "./components/Sidebar"
+import Header from "./components/Header"
+import Main from "./components/Main"
 
 const App = () => {
   return (
-    <div>
-      <Sidebar />
-      <Profile />
-    </div>
+    <>
+      <Header />
+      <Main />
+    </>
   )
 }
 
