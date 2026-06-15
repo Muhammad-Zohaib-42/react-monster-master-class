@@ -6,11 +6,11 @@ const trendsData = [
         description: 'By Maren Tarff'
     },
     {
-        title: 'Be the person you are on vacation',
+        title: 'Web Development in 2026',
         description: 'By Maren Tarff'
     },
     {
-        title: 'Be the person you are on vacation',
+        title: 'AI & ML in 2026',
         description: 'By Maren Tarff'
     }
 ]

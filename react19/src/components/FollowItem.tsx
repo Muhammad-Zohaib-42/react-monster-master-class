@@ -13,7 +13,7 @@ const FollowItem: FC<FollowItemProps> = ({name, isFollowing}) => {
             <FaUserCircle className="text-gray-600" size={20} />
             <p className="text-[16px] text-gray-700">{name}</p>
         </div>
-        <button className={`text-sm rounded-full px-3 py-1 cursor-pointer ${isFollowing ? "bg-gray-900 text-gray-200" : "bg-gray-200 text-gray-800"}`}>{isFollowing ? "Following" : "Follow"}</button>
+        <button className={`text-sm rounded-full px-3 py-1 cursor-pointer ${isFollowing ? "bg-green-600 text-gray-200" : "bg-gray-200 text-gray-800"}`}>{isFollowing ? "Following" : "Follow"}</button>
     </li>
   )
 }
