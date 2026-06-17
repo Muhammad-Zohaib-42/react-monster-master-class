@@ -7,7 +7,7 @@ const FilterSelect = () => {
 
   return (
     <div className="relative">
-        <button onClick={() => setIsOpen(prev => !prev)} className="flex items-center gap-2 border border-slate-800 rounded-md py-1 px-2 transition hover:bg-slate-800">
+        <button onClick={() => setIsOpen(prev => !prev)} className="flex items-center gap-2 border border-slate-800 rounded-md py-1 px-2 transition hover:bg-slate-800 select-none">
             <MdSort />
             <span>Filter</span>
             <IoIosArrowDown />

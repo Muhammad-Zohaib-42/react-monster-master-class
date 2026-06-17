@@ -6,7 +6,7 @@ type ChildrenProps = {
 
 const DashboardTableRow = ({clientData}: ChildrenProps) => {
   return (
-    <tr key={clientData.id} className="text-slate-400 border-b border-b-slate-800 [&_td]:p-3">
+    <tr className="text-slate-400 border-b border-b-slate-800 [&_td]:p-3">
       <td>
         <img className="h-8 w-8 rounded-full object-cover" src={clientData.image} alt="client image" />
       </td>
