@@ -11,3 +11,7 @@
 .section-list {
     @apply flex flex-col
 }
+
+button {
+    @apply cursor-pointer
+}

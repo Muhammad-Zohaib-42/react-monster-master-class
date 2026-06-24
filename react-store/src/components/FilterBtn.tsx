@@ -15,12 +15,12 @@ const FilterBtn = () => {
   }
 
   return (
-    <div className="relative">
+    <div className="relative mb-4">
         <button onClick={filterMenuToggleHandler} className="px-2 py-1 border border-slate-300 transition hover:bg-slate-200 flex items-center gap-1">
             <BsFilterRight size={25} />
             <span className="font-semibold">Filter</span>
         </button>
-        <ul className="absolute left-0 top-[120%] border border-slate-300 w-[120px] py-1" style={{display: isFilterMenuOpen ? "block" : "none"}}>
+        <ul className="absolute left-0 top-[120%] border border-slate-300 w-[120px] py-1 bg-slate-100" style={{display: isFilterMenuOpen ? "block" : "none"}}>
             {
                 options.map((option, index) => <DropdownItem key={index} option={option} />)
             }
