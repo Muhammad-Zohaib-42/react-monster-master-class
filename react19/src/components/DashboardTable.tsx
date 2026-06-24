@@ -3,7 +3,7 @@ import DashboardTableRow from "./DashboardTableRow"
 import { ClientContext, type Client } from "../contexts/ClientContext"
 
 const DashboardTable = () => {
-  const {clientsData} = useContext(ClientContext)!
+  const {clientsData, filterQueryData} = useContext(ClientContext)!
 
   return (
     <div className="rounded overflow-hidden border border-slate-700 w-full my-4">
@@ -23,7 +23,12 @@ const DashboardTable = () => {
             </thead>
             <tbody>
                 {
-                    clientsData.map((clientData: Client) => <DashboardTableRow key={clientData.id} clientData={clientData} />)
+                    clientsData.filter(clientData => {
+                        const valueToSearch = clientData[filterQueryData.name].toLowerCase()
+                        const lowerCaseQuery = filterQueryData.query.toLowerCase()
+
+                        return valueToSearch.includes(lowerCaseQuery)
+                    }).map((clientData: Client) => <DashboardTableRow key={clientData.id} clientData={clientData} />)
                 }
             </tbody>
         </table>
