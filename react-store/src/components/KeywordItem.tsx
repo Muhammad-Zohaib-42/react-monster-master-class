@@ -4,8 +4,10 @@ type keywordItemProps = {
 
 const KeywordItem = ({keyword}: keywordItemProps) => {
   return (
-    <li className="px-2 py-1 border border-slate-300 transition hover:bg-slate-200">
-        <p>{keyword}</p>
+    <li className="">
+        <button className="px-2 py-1 border border-slate-300 transition hover:bg-slate-200 w-full text-start">
+          <p>{keyword}</p>
+        </button>
     </li>
   )
 }
