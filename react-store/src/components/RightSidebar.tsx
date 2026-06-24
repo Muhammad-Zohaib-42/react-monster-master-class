@@ -1,6 +1,6 @@
 const RightSidebar = () => {
   return (
-    <div className="w-[250px] h-full bg-red-400">RightSidebar</div>
+    <div className="w-[280px] h-full">RightSidebar</div>
   )
 }
 

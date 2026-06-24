@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+.input {
+    @apply border border-slate-300 p-2 outline-none focus:border-slate-400
+}
+
+.section-title {
+    @apply font-semibold text-lg
+}
+
+.section-list {
+    @apply flex flex-col
+}

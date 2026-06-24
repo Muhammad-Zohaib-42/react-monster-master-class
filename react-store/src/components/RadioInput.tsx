@@ -4,10 +4,10 @@ type RadioInputProps = {
 
 const RadioInput = ({text}: RadioInputProps) => {
   return (
-    <div>
+    <li className="flex gap-1.5">
         <input type="radio" name="category" id={text} />
-        <label htmlFor={text}>{text}</label>
-    </div>
+        <label className="capitalize" htmlFor={text}>{text}</label>
+    </li>
   )
 }
 

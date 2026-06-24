@@ -1,6 +1,6 @@
 const Main = () => {
   return (
-    <main className="grow h-full bg-blue-400">Main</main>
+    <main className="grow h-full">Main</main>
   )
 }
 
