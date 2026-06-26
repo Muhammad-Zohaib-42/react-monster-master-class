@@ -1,10 +1,68 @@
-import type { Dispatch, ReactNode, SetStateAction } from "react"
+import type { Dispatch, ReactNode, SetStateAction } from "react";
 
 export type StoreProviderProps = {
-    children: ReactNode
-}
+  children: ReactNode;
+};
 
 export type ContextValue = {
-    isFilterMenuOpen: boolean,
-    setIsFilterMenuOpen: Dispatch<SetStateAction<boolean>>
-}
+  isFilterMenuOpen: boolean;
+  setIsFilterMenuOpen: Dispatch<SetStateAction<boolean>>;
+  productsData: ProductObjType[];
+  setProductsData: Dispatch<SetStateAction<ProductObjType[]>>
+};
+
+export type ProductObjType = {
+  id: number;
+  title: string;
+  description: string;
+  category: string;
+  price: number;
+  discountPercentage: number;
+  rating: number;
+  stock: number;
+  tags: string[];
+  brand: string;
+  sku: string;
+  weight: number;
+  dimensions: {
+    width: number;
+    height: number;
+    depth: number;
+  };
+  warrantyInformation: string;
+  shippingInformation: string;
+  availabilityStatus: string;
+  reviews: [
+    {
+      rating: number;
+      comment: string;
+      date: string;
+      reviewerName: string;
+      reviewerEmail: string;
+    },
+    {
+      rating: number;
+      comment: string;
+      date: string;
+      reviewerName: string;
+      reviewerEmail: string;
+    },
+    {
+      rating: number;
+      comment: string;
+      date: string;
+      reviewerName: string;
+      reviewerEmail: string;
+    },
+  ];
+  returnPolicy: string;
+  minimumOrderQuantity: number;
+  meta: {
+    createdAt: string;
+    updatedAt: string;
+    barcode: string;
+    qrCode: string;
+  };
+  images: string[];
+  thumbnail: string;
+};

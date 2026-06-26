@@ -11,8 +11,8 @@ const ProductCard = ({imgSrc, title, price}: ProductCardProps) => {
             <img className="h-full w-full object-contain" src={imgSrc} alt={`${title} image`} />
         </div>
         <div className="px-4 pt-4 pb-3">
-            <h3 className="font-semibold">{title}</h3>
-            <p>${price}</p>
+            <h3 className="font-semibold truncate">{title}</h3>
+            <p className="text-slate-500">${price}</p>
         </div>
     </div>
   )
