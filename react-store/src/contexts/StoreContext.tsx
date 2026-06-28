@@ -9,13 +9,20 @@ export const StoreProvider = ({children}: StoreProviderProps) => {
         const productsDataJson = localStorage.getItem("productsData")
         if (productsDataJson) {
             const data = JSON.parse(productsDataJson)
-            return data
+            return data.slice(0, 8)
         } else {
             return []
         }
     })
+    const [currentPage, setCurrentPage] = useState<number>(1)
+    const itemsPerPage: number = 8;
+    const [searchQuery, setSearchQuery] = useState<string>("")
+    const [minPrice, setMinPrice] = useState<string>("")
+    const [maxPrice, setMaxPrice] = useState<string>("")
+    const [category, setCategory] = useState<string>("")
+    const [keyword, setKeyword] = useState<string>("")
 
-    return <StoreContext.Provider value={{isFilterMenuOpen, setIsFilterMenuOpen, productsData, setProductsData}}>
+    return <StoreContext.Provider value={{isFilterMenuOpen, setIsFilterMenuOpen, productsData, setProductsData, currentPage, setCurrentPage, itemsPerPage}}>
         {children}
     </StoreContext.Provider>
 }

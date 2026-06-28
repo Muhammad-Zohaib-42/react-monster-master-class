@@ -4,17 +4,17 @@ import { StoreContext } from "../contexts/StoreContext"
 import ProductCardShimmer from "./ProductCardShimmer"
 
 const ProductContainer = () => {
-  const {productsData, setProductsData} = useContext(StoreContext)!
+  const {productsData, setProductsData, currentPage, itemsPerPage} = useContext(StoreContext)!
 
   async function fetchProductsData() {
-    const response = await fetch("https://dummyjson.com/products?limit=8")
+    const response = await fetch(`https://dummyjson.com/products?limit=${itemsPerPage}&skip=${(currentPage - 1) * itemsPerPage}`)
     const data = await response.json()
     setProductsData(data.products)
   }
 
   useEffect(() => {
     fetchProductsData()
-  }, [])
+  }, [currentPage])
 
   return (
     <section className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-3">

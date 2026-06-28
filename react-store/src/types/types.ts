@@ -8,7 +8,10 @@ export type ContextValue = {
   isFilterMenuOpen: boolean;
   setIsFilterMenuOpen: Dispatch<SetStateAction<boolean>>;
   productsData: ProductObjType[];
-  setProductsData: Dispatch<SetStateAction<ProductObjType[]>>
+  setProductsData: Dispatch<SetStateAction<ProductObjType[]>>,
+  currentPage: number,
+  setCurrentPage: Dispatch<SetStateAction<number>>,
+  itemsPerPage: number
 };
 
 export type ProductObjType = {
