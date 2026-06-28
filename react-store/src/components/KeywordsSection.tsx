@@ -1,6 +1,9 @@
+import { useContext } from "react"
 import KeywordItem from "./KeywordItem"
+import { StoreContext } from "../contexts/StoreContext"
 
 const KeywordsSection = () => {
+  const {productsData} = useContext(StoreContext)!
   const keywords: string[] = ["APPLE", "WATCH", "FASHION", "TREND", "SHOES", "SHIRT"]
 
   return (

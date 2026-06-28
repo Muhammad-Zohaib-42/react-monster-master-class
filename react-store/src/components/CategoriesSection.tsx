@@ -4,10 +4,17 @@ import { StoreContext } from "../contexts/StoreContext"
 
 const CategorySection = () => {
   const {productsData} = useContext(StoreContext)!
-  const radioItems: string[] = productsData.reduce<string[]>((acc,curr) => {
-    if (!acc.find(elem => elem == curr.category)) acc.push(curr.category)
-    return acc
-  }, [])
+
+  // not optimized way
+
+  // const radioItems: string[] = productsData.reduce<string[]>((acc,curr) => {
+  //   if (!acc.find(elem => elem == curr.category)) acc.push(curr.category)
+  //   return acc
+  // }, [])
+
+  // optimized way
+
+  const radioItems: string[] = [...new Set(productsData.map(product => product.category))]
 
   return (
     <div className="my-5">
