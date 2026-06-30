@@ -1,17 +1,22 @@
+import { useContext } from "react"
 import NumPaginationBtn from "./NumPaginationBtn"
-
-export type NumObj = {
-    num: number,
-    isActive: boolean
-}
+import { StoreContext } from "../contexts/StoreContext"
 
 const NumPaginationBtnsWrapper = () => {
-  const nums: NumObj[] = [{num: 1, isActive: true},{num: 2, isActive: false},{num: 3, isActive: false},{num: 4, isActive: false},{num: 5, isActive: false}]
+  const {currentPage} = useContext(StoreContext)!
+
+  let nums: number[] = []
+
+  const loopStartingNum = currentPage >= 3 ? currentPage - 2 : 1
+
+  for (let i = loopStartingNum; i <= loopStartingNum + 4; i++) {
+    nums.push(i)
+  }
 
   return (
     <div className="flex items-center gap-3">
         {
-            nums.map(numObj => <NumPaginationBtn key={numObj.num} num={numObj.num} isActive={numObj.isActive} />)
+            nums.map(num => <NumPaginationBtn key={num} num={num} isActive={num == currentPage ? true : false} />)
         }
     </div>
   )
