@@ -11,7 +11,17 @@ export type ContextValue = {
   setProductsData: Dispatch<SetStateAction<ProductObjType[]>>,
   currentPage: number,
   setCurrentPage: Dispatch<SetStateAction<number>>,
-  itemsPerPage: number
+  itemsPerPage: number,
+  searchQuery: string,
+  setSearchQuery: Dispatch<SetStateAction<string>>,
+  minPrice: number | null,
+  setMinPrice: Dispatch<SetStateAction<number | null>>;
+  maxPrice: number | null,
+  setMaxPrice: Dispatch<SetStateAction<number | null>>;
+  keyword: string,
+  setKeyword: Dispatch<SetStateAction<string>>;
+  category: string,
+  setCategory: Dispatch<SetStateAction<string>>;
 };
 
 export type ProductObjType = {
