@@ -1,20 +1,41 @@
 import {motion} from "motion/react"
-import { useState } from "react"
 
-const variants = {
-  front: {rotateY: 0},
-  back: {rotateY: 180}
+const images = [
+  {
+    src: "https://plus.unsplash.com/premium_photo-1673292293042-cafd9c8a3ab3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bmF0dXJlfGVufDB8fDB8fHww",
+    author: "Dario Bronnimann"
+  },
+  {
+    src: "https://images.unsplash.com/photo-1751225750479-43ad27b94fa0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmF0dXJlfGVufDB8fDB8fHww",
+    author: "Emma Swobolda"
+  },
+  {
+    src: "https://images.unsplash.com/photo-1759681770982-313332e7f42c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bmF0dXJlfGVufDB8fDB8fHww",
+    author: "Kristaps Ungurs"
+  }
+]
+
+const parentVariants = {
+  initial: {scale: 1},
+  hover: {scale: 1.05}
 }
 
-function App() {
-  const [isFlipped, setIsFlipped] = useState<boolean>(false)
+const childVariants = {
+  initial: {scale: 0},
+  hover: {scale: 1}
+}
 
+const App = () => {
   return (
-    <main onClick={() => setIsFlipped(!isFlipped)} className="h-screen bg-slate-900 text-slate-200 grid place-content-center perspective-distant">
-      <motion.div variants={variants} initial="front" animate={isFlipped ? "back" : "front"} transition={{duration:1, ease: "anticipate"}} className="relative h-70 w-60 transform-3d">
-        <div className="absolute inset-0 text-xl flex items-center justify-center backface-hidden bg-slate-800 rounded-md">Front Side</div>
-        <div className="absolute inset-0 text-xl flex items-center justify-center backface-hidden bg-slate-800 rounded-md rotate-y-180">Back Side</div>
-      </motion.div>
+    <main className="h-screen bg-slate-900 text-slate-200 flex items-center justify-center gap-5">
+      {
+        images.map(({src, author}) => <motion.div variants={parentVariants} initial="initial" whileHover="hover" transition={{type:"spring",stiffness:300}} className="h-60 w-60 rounded-lg overflow-hidden relative">
+          <img className="h-full w-full object-cover" src={src} alt="nature" />
+          <motion.div variants={childVariants} transition={{type:"spring",stiffness:300}} className="absolute inset-0 bg-black/50 flex items-center justify-center">
+            <h2 className="text-xl text-white">{author}</h2>
+          </motion.div>
+        </motion.div>)
+      }
     </main>
   )
 }
