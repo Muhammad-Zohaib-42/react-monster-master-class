@@ -3,7 +3,7 @@ import KeywordItem from "./KeywordItem"
 import { StoreContext } from "../contexts/StoreContext"
 
 const KeywordsSection = () => {
-  const {productsData} = useContext(StoreContext)!
+  const {productsData } = useContext(StoreContext)!
 
   const categories = [...new Set(productsData.map(productData => productData.category))]
   let tagsArray: string[] = []
@@ -18,7 +18,7 @@ const KeywordsSection = () => {
         <h2 className="section-title mb-1">Keywords</h2>
         <ul className="section-list gap-1.5">
             {
-                keywords.length < 1 ? <p>Loading Keywords...</p> : keywords.map(keyword => <KeywordItem key={keyword} keyword={keyword} />)
+                keywords.length < 1 ? <p>Loading Keywords...</p> : keywords.map(keyword => <KeywordItem key={keyword} keywordText={keyword} />)
             }
         </ul>
     </div>

@@ -1,12 +1,17 @@
+import { useContext } from "react"
+import { StoreContext } from "../contexts/StoreContext"
+
 type keywordItemProps = {
-    keyword: string
+    keywordText: string
 }
 
-const KeywordItem = ({keyword}: keywordItemProps) => {
+const KeywordItem = ({keywordText}: keywordItemProps) => {
+  const {setKeyword, keyword} = useContext(StoreContext)!
+
   return (
-    <li className="">
-        <button className="px-2 py-1 border border-slate-300 transition-all hover:bg-slate-200 w-full text-start">
-          <p>{keyword}</p>
+    <li>
+        <button onClick={() => setKeyword(keywordText)} className={`px-2 py-1 border transition-all w-full text-start ${keyword == keywordText ? "bg-slate-100 border-slate-100" : "hover:bg-slate-200 border-slate-300"}`}>
+          <p>{keywordText}</p>
         </button>
     </li>
   )

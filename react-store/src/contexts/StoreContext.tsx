@@ -17,10 +17,10 @@ export const StoreProvider = ({children}: StoreProviderProps) => {
     const [currentPage, setCurrentPage] = useState<number>(1)
     const itemsPerPage: number = 8;
     const [searchQuery, setSearchQuery] = useState<string>("")
-    const [minPrice, setMinPrice] = useState<number | null>(null)
-    const [maxPrice, setMaxPrice] = useState<number | null>(null)
-    const [category, setCategory] = useState<string>("")
-    const [keyword, setKeyword] = useState<string>("")
+    const [minPrice, setMinPrice] = useState<number>(0)
+    const [maxPrice, setMaxPrice] = useState<number>(Infinity)
+    const [category, setCategory] = useState<string>("All")
+    const [keyword, setKeyword] = useState<string>("All")
 
     return <StoreContext.Provider value={{keyword, setKeyword, category, setCategory, minPrice, setMinPrice, searchQuery, setSearchQuery, maxPrice, setMaxPrice, isFilterMenuOpen, setIsFilterMenuOpen, productsData, setProductsData, currentPage, setCurrentPage, itemsPerPage}}>
         {children}

@@ -14,10 +14,10 @@ export type ContextValue = {
   itemsPerPage: number,
   searchQuery: string,
   setSearchQuery: Dispatch<SetStateAction<string>>,
-  minPrice: number | null,
-  setMinPrice: Dispatch<SetStateAction<number | null>>;
-  maxPrice: number | null,
-  setMaxPrice: Dispatch<SetStateAction<number | null>>;
+  minPrice: number,
+  setMinPrice: Dispatch<SetStateAction<number>>;
+  maxPrice: number,
+  setMaxPrice: Dispatch<SetStateAction<number>>;
   keyword: string,
   setKeyword: Dispatch<SetStateAction<string>>;
   category: string,
